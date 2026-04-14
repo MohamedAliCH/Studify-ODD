@@ -11,7 +11,17 @@ import Technique from './pages/Technique';
 function AppContent() {
   const [currentPage, setCurrentPage] = useState('home');
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [darkMode, setDarkMode] = useState(() => {
+    const saved = localStorage.getItem('studify-dark-mode');
+    return saved === 'true';
+  });
   const addToast = useToast();
+
+  /* Apply dark mode class */
+  useEffect(() => {
+    document.documentElement.classList.toggle('dark', darkMode);
+    localStorage.setItem('studify-dark-mode', darkMode);
+  }, [darkMode]);
 
   /* Hash-based routing (matches original behavior) */
   useEffect(() => {
@@ -74,7 +84,11 @@ function AppContent() {
         isOpen={sidebarOpen}
       />
       <main className="content-area">
-        <TopBar currentPage={currentPage} />
+        <TopBar
+          currentPage={currentPage}
+          darkMode={darkMode}
+          onToggleDarkMode={() => setDarkMode((prev) => !prev)}
+        />
         {renderPage()}
       </main>
     </>

@@ -1,10 +1,12 @@
 import { useState, useMemo, useRef } from 'react';
 import { subjectData as initialSubjectData } from '../data/subjects';
 import QuizOverlay from '../components/QuizOverlay';
+import ChatOverlay from '../components/ChatOverlay';
 
 export default function Pedagogique() {
   const [selectedSubject, setSelectedSubject] = useState(null);
   const [quizData, setQuizData] = useState(null);
+  const [chatCourse, setChatCourse] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [favorites, setFavorites] = useState([]);
   const [importedCourses, setImportedCourses] = useState({});
@@ -247,7 +249,7 @@ export default function Pedagogique() {
                   <p className="summary-text">{cours.resume}</p>
                 </div>
 
-                {/* Quiz launcher */}
+                {/* Quiz launcher + Chatbot */}
                 <div className="lesson-actions">
                   {hasQuiz ? (
                     <button className="primary-btn" onClick={() => openQuiz(cours.quizzes)} id={`quiz-btn-${idx}`}>
@@ -258,6 +260,16 @@ export default function Pedagogique() {
                       <i className="fa-solid fa-circle-info" /> {cours.imported ? 'Quiz non disponible pour les cours importés' : 'Aucun quiz pour ce cours'}
                     </span>
                   )}
+                  <button
+                    className="chat-btn"
+                    onClick={() => setChatCourse(cours.titre)}
+                    title="Discuter avec l'assistant IA"
+                    id={`chat-btn-${idx}`}
+                    aria-label="Ouvrir le chat IA"
+                  >
+                    <i className="fa-solid fa-robot" />
+                    <span>Chat IA</span>
+                  </button>
                 </div>
               </div>
             </div>
@@ -267,6 +279,9 @@ export default function Pedagogique() {
 
       {/* Quiz overlay */}
       {quizData && <QuizOverlay quizzes={quizData} onClose={() => setQuizData(null)} />}
+
+      {/* Chat overlay */}
+      {chatCourse && <ChatOverlay courseName={chatCourse} onClose={() => setChatCourse(null)} />}
     </section>
   );
 }

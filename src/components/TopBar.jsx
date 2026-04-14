@@ -8,7 +8,7 @@ const pageLabels = {
   technique: { title: 'Technique', subtitle: 'Logiciels, tutoriels et assistance' },
 };
 
-export default function TopBar({ currentPage }) {
+export default function TopBar({ currentPage, darkMode, onToggleDarkMode }) {
   const addToast = useToast();
 
   const triggerNotification = () => {
@@ -25,6 +25,15 @@ export default function TopBar({ currentPage }) {
         <p>{label.subtitle}</p>
       </div>
       <div className="top-bar-actions">
+        <button
+          className={`icon-btn theme-toggle${darkMode ? ' dark' : ''}`}
+          onClick={onToggleDarkMode}
+          title={darkMode ? 'Mode clair' : 'Mode sombre'}
+          id="btn-toggle-theme"
+          aria-label={darkMode ? 'Passer en mode clair' : 'Passer en mode sombre'}
+        >
+          <i className={`fa-solid ${darkMode ? 'fa-sun' : 'fa-moon'}`} />
+        </button>
         <button
           className="icon-btn"
           onClick={triggerNotification}
