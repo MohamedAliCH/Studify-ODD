@@ -1,27 +1,73 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 const particles = [
-  { icon: 'fa-solid fa-graduation-cap', left: '8%',  size: '1.8rem', duration: '14s', delay: '0s' },
-  { icon: 'fa-solid fa-book',           left: '25%', size: '1.4rem', duration: '18s', delay: '3s' },
-  { icon: 'fa-solid fa-flask',          left: '45%', size: '1.6rem', duration: '16s', delay: '1s' },
-  { icon: 'fa-solid fa-atom',           left: '65%', size: '1.3rem', duration: '20s', delay: '5s' },
-  { icon: 'fa-solid fa-code',           left: '82%', size: '1.5rem', duration: '15s', delay: '2s' },
-  { icon: 'fa-solid fa-calculator',     left: '92%', size: '1.2rem', duration: '19s', delay: '7s' },
+  {
+    icon: "fa-solid fa-graduation-cap",
+    left: "8%",
+    size: "1.8rem",
+    duration: "14s",
+    delay: "0s",
+  },
+  {
+    icon: "fa-solid fa-book",
+    left: "25%",
+    size: "1.4rem",
+    duration: "18s",
+    delay: "3s",
+  },
+  {
+    icon: "fa-solid fa-flask",
+    left: "45%",
+    size: "1.6rem",
+    duration: "16s",
+    delay: "1s",
+  },
+  {
+    icon: "fa-solid fa-atom",
+    left: "65%",
+    size: "1.3rem",
+    duration: "20s",
+    delay: "5s",
+  },
+  {
+    icon: "fa-solid fa-code",
+    left: "82%",
+    size: "1.5rem",
+    duration: "15s",
+    delay: "2s",
+  },
+  {
+    icon: "fa-solid fa-calculator",
+    left: "92%",
+    size: "1.2rem",
+    duration: "19s",
+    delay: "7s",
+  },
 ];
 
 const stats = [
-  { icon: 'fa-solid fa-book-open', value: 7, label: 'Matières', color: 'indigo' },
-  { icon: 'fa-solid fa-file-lines', value: 13, label: 'Cours', color: 'teal' },
-  { icon: 'fa-solid fa-clipboard-check', value: 12, label: 'Quiz dispo', color: 'emerald' },
-  { icon: 'fa-solid fa-clock', value: 2, label: 'Deadlines', color: 'amber' },
+  {
+    icon: "fa-solid fa-book-open",
+    value: 7,
+    label: "Matières",
+    color: "indigo",
+  },
+  { icon: "fa-solid fa-file-lines", value: 13, label: "Cours", color: "teal" },
+  {
+    icon: "fa-solid fa-clipboard-check",
+    value: 12,
+    label: "Quiz dispo",
+    color: "emerald",
+  },
+  { icon: "fa-solid fa-clock", value: 2, label: "Deadlines", color: "amber" },
 ];
 
 const tips = [
-  'La technique Pomodoro (25 min de focus, 5 min de pause) améliore la concentration de 40%.',
-  'Révisez vos notes dans les 24h après le cours pour retenir 80% de l\'information.',
-  'Enseigner un concept à quelqu\'un d\'autre est le meilleur moyen de le maîtriser.',
-  'Faites des quiz réguliers — la récupération active renforce la mémoire à long terme.',
-  'Alternez entre différentes matières plutôt que de réviser un seul sujet pendant des heures.',
+  "La technique Pomodoro (25 min de focus, 5 min de pause) améliore la concentration de 40%.",
+  "Révisez vos notes dans les 24h après le cours pour retenir 80% de l'information.",
+  "Enseigner un concept à quelqu'un d'autre est le meilleur moyen de le maîtriser.",
+  "Faites des quiz réguliers — la récupération active renforce la mémoire à long terme.",
+  "Alternez entre différentes matières plutôt que de réviser un seul sujet pendant des heures.",
 ];
 
 export default function Home({ onNavigate }) {
@@ -48,7 +94,7 @@ export default function Home({ onNavigate }) {
                 fontSize: p.size,
                 animationDuration: p.duration,
                 animationDelay: p.delay,
-                bottom: '-10%',
+                bottom: "-10%",
               }}
             />
           ))}
@@ -58,8 +104,8 @@ export default function Home({ onNavigate }) {
           Bienvenue sur <span className="gradient-text">StudiFy</span>
         </h1>
         <p className="hero-subtitle">
-          Votre écosystème étudiant intelligent. Organisez, révisez et réussissez vos projets
-          techniques avec aisance.
+          Votre écosystème étudiant intelligent. Organisez, révisez et
+          réussissez vos projets techniques avec aisance.
         </p>
       </div>
 
@@ -78,36 +124,48 @@ export default function Home({ onNavigate }) {
 
       {/* Feature Cards */}
       <div className="card-grid">
-        <div className="glass-card feature-card" onClick={() => onNavigate('organisation')} id="card-organisation">
+        <div
+          className="glass-card feature-card"
+          onClick={() => onNavigate("organisation")}
+          id="card-organisation"
+        >
           <div className="feature-icon">
             <i className="fa-solid fa-envelope-open-text" />
           </div>
-          <h3>Smart Triage & Alertes</h3>
+          <h3>Tri des emails et Alertes</h3>
           <p>
-            Ne ratez aucune deadline. Vos emails sont triés, les annonces critiques sont notifiées
-            en temps réel.
+            Ne ratez aucune deadline. Vos emails sont triés, les annonces
+            critiques sont notifiées en temps réel.
           </p>
         </div>
 
-        <div className="glass-card feature-card" onClick={() => onNavigate('pedagogique')} id="card-pedagogique">
+        <div
+          className="glass-card feature-card"
+          onClick={() => onNavigate("pedagogique")}
+          id="card-pedagogique"
+        >
           <div className="feature-icon">
             <i className="fa-solid fa-brain" />
           </div>
           <h3>Soutien Interactif</h3>
           <p>
-            Des résumés de cours générés intelligemment et des quiz interactifs pour tester vos
-            connaissances avant l'examen.
+            Des résumés de cours générés intelligemment et des quiz interactifs
+            pour tester vos connaissances avant l'examen.
           </p>
         </div>
 
-        <div className="glass-card feature-card" onClick={() => onNavigate('technique')} id="card-technique">
+        <div
+          className="glass-card feature-card"
+          onClick={() => onNavigate("technique")}
+          id="card-technique"
+        >
           <div className="feature-icon">
             <i className="fa-solid fa-microchip" />
           </div>
           <h3>Assistance TP</h3>
           <p>
-            Ressources, logiciels, tutoriels vidéo et un chatbot dédié pour résoudre vos problèmes
-            de configuration.
+            Ressources, logiciels, tutoriels vidéo et un chatbot dédié pour
+            résoudre vos problèmes de configuration.
           </p>
         </div>
       </div>
