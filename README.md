@@ -1,5 +1,6 @@
 # StudyFy 🎓
 
+
 🌐 Live: https://studifyodd.netlify.app/
 
 StudyFy is a modern, responsive student assistant application built with **React** and **Vite**. Designed with a premium "Neo-Academic" UI aesthetic, StudyFy helps students organize their study schedules, access pedagogical materials, and receive technical assistance in an intuitive and interactive environment.
